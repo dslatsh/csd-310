@@ -69,7 +69,7 @@ for i in range(3,0,-1):
     sys.stdout.flush()
     time.sleep(1)
 jimmy_student_id_delete = students.delete_one({"student_id": "1010"})
-print("\nJimmy is outta here")
+print("\nJimmy is outta here!!!")
 
 
 # Requery the students list and display them

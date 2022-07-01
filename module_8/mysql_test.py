@@ -26,7 +26,7 @@ try:
     # output the connection status 
     print("\n  Database user {} connected to MySQL on host {} with database {}".format(config["user"], config["host"], config["database"]))
 
-    input("\n\n  Press any key to continue...")
+    input("\n\n  Program has completed please press enter to exit....")
 
 except mysql.connector.Error as err:
     """ on error code """

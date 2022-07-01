@@ -1,3 +1,17 @@
+/*
+    Title: db_init.sql
+    Author: Devin Latshaw
+    Date: July 1st 2022
+    Description: 
+            1.  script used to initialize the pysports database
+                will drop user pysports_user if exists and
+                recreate user while granting privs.
+            2.  Drops tabls player & team if exist and then 
+                creates tables 
+            3.  Fill sin the table with data
+*/
+
+
 -- drop test user if exists 
 DROP USER IF EXISTS 'pysports_user'@'localhost';
 

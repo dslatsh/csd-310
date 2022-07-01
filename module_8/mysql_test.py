@@ -1,3 +1,10 @@
+"""
+   title: mysql_test.py
+   Author: Devin Latshaw
+   Date: July 1st 2022
+   Description: test program for trying to connect to the mysql.connector
+ """
+
 """ import statements """
 import mysql.connector
 from mysql.connector import errorcode

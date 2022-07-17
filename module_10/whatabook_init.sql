@@ -1,20 +1,43 @@
+/*
+    Title: whatabook_init.sql
+    Author: Devin Latshaw
+    Date: 7/15/2022
+    Description: creates the tables for the database by first
+                 Dropping database whatabook, re-creating and setting to use whatabook
+                 Dropping user, re-creating, granting all privs 
+                 Then dropping all tables to re-create the tables fresh
+                 and inputs all the data into tables
+*/
+
+/* Drops database if exists */
+DROP DATABASE IF EXISTS whatabook;
+
+/* Creates database whatabook */
+CREATE DATABASE whatabook;
+
+/* Set to use whatabook database */
+use whatabook;
+
+/* Drops user if they exists */
 DROP USER IF EXISTS 'whatabook_user'@'localhost';
 
-CREATE USER 'WHATABOOK_USER'@'LOCALHOST' IDENTIFIED WITH mysql_native_password by 'MySQL8IsGreat!';
+/* Creates the user and gives them a set password */
+CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password by 'MySQL8IsGreat!';
 
+/* Grant user created all privs */
 GRANT ALL PRIVILEGES ON whatabook.* TO'whatabook_user'@'localhost';
 
+/* This is to delete the foreign keys so tables can be dropped */
 ALTER TABLE wishlist DROP FOREIGN KEY fk_book;
 ALTER TABLE wishlist DROP FOREIGN KEY fk_user;
 
+/* Drops all the tables */
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS store;
 DROP TABLE IF EXISTS wishlist;
 
-
-
-
+/* Creates table user */
 CREATE TABLE user (
     user_id         INT             NOT NULL    AUTO_INCREMENT,
     first_name      VARCHAR(75)     NOT NULL,
@@ -22,7 +45,7 @@ CREATE TABLE user (
     PRIMARY KEY(user_id)
 );
 
-
+/* Creates table book */
 CREATE TABLE book (
     book_id     INT             NOT NULL    AUTO_INCREMENT,
     book_name   VARCHAR(200)    NOT NULL,
@@ -31,12 +54,14 @@ CREATE TABLE book (
     PRIMARY KEY(book_id)
 );
 
+/* Creates table store */
 CREATE TABLE store (
     store_id    INT    NOT NULL    AUTO_INCREMENT,
     locale      VARCHAR(500)    NOT NULL,
     PRIMARY KEY(store_id)
 );
 
+/* Creates table wishlist */
 CREATE TABLE wishlist (
     wishlist_id     INT     NOT NULL    AUTO_INCREMENT,
     user_id         INT     NOT NULL,
@@ -93,13 +118,13 @@ INSERT INTO book(book_name, author, details)
     VALUES('The Catcher and the Rye', 'J.D. Salinger', 'Fish and bread...joking');
 
 /*
-    inserts into store
+    Inserts into store
 */
 INSERT INTO store(locale)
     VALUES('4700 Baker Street Extension, Lakewood, NY, 14750');
 
 /*
-    inserts wishlist
+    Inserts wishlist
 */
 
 INSERT INTO wishlist(user_id, book_id) 

@@ -30,7 +30,7 @@ def show_menu():
     print("\n   1. View Books\n   2. View Store Locations\n   3. My Account\n   4. Exit Program")
 
     try:
-        choice = int(input('\n  <Example - Enter: 2 for store locations>: '))
+        choice = int(input('\n  Please input your choice  <Example, Enter: 2 for store locations>: '))
 
         return choice
     except ValueError:
@@ -67,7 +67,7 @@ def show_locations(_cursor):
 def validate_user():
     while True:
         try:
-            user_id = int(input('\n     Enter your customer ID <Example - Enter 1 for user_id 1>: '))
+            user_id = int(input('\n     Please enter your customer ID <Example - Enter 1 for user_id 1>: '))
 
             if user_id <= 0 or user_id >= 4:
                 print("\n     Invalid customer number ID, please try again!\n")
@@ -88,7 +88,7 @@ def show_account_menu():
     try:
         print("\n     --  Customer Menu --")
         print("\n     1. Wish List\n     2. Add Book\n     3. Delete Book\n     4. Main Menu")
-        cust_selectionion = int(input('\n    <Example - Enter: 2 for adding book to wish list>: '))
+        cust_selectionion = int(input('\n   Please input your choice  <Example, Enter: 2 for store locations>: '))
 
         return cust_selectionion
     

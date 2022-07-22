@@ -50,7 +50,7 @@ def show_books(_cursor):
 
     # Using a for loop to iterate over the books to display
     for book in books:
-        print("\n     Book Name: {}\n     Author: {}\n     Details: {}\n".format(book[0], book[1], book[2]))
+        print("\n     Book ID: {}\n     Book Name: {}\n     Author: {}\n     Details: {}\n".format(book[0], book[1], book[2], book[3]))
 
 # Defining the display locations program
 def show_locations(_cursor):
